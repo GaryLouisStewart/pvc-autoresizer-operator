@@ -1,0 +1,9 @@
+apiVersion: storage.synaptikltd.io/v1alpha1
+kind: AutoResizePolicy
+metadata:
+  labels:
+    app.kubernetes.io/name: pvc-autoresizer-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: autoresizepolicy-sample
+spec:
+  # TODO(user): Add fields here

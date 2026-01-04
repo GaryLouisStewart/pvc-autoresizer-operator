@@ -37,8 +37,8 @@ import (
 	metricsserver "sigs.k8s.io/controller-runtime/pkg/metrics/server"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 
-	storagev1alpha1 "github.com/yourusername/pvc-autoresizer-operator/api/v1alpha1"
-	"github.com/yourusername/pvc-autoresizer-operator/internal/controller"
+	storagev1alpha1 "github.com/garylouisstewart/pvc-autoresizer-operator/api/v1alpha1"
+	"github.com/garylouisstewart/pvc-autoresizer-operator/internal/controller"
 	// +kubebuilder:scaffold:imports
 )
 
@@ -203,8 +203,9 @@ func main() {
 	}
 
 	if err := (&controller.AutoResizePolicyReconciler{
-		Client: mgr.GetClient(),
-		Scheme: mgr.GetScheme(),
+		Client:   mgr.GetClient(),
+		Scheme:   mgr.GetScheme(),
+		Recorder: mgr.GetEventRecorderFor("pvc-autoresize-operator"),
 	}).SetupWithManager(mgr); err != nil {
 		setupLog.Error(err, "unable to create controller", "controller", "AutoResizePolicy")
 		os.Exit(1)

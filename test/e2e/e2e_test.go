@@ -27,7 +27,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/yourusername/pvc-autoresizer-operator/test/utils"
+	"github.com/garylouisstewart/pvc-autoresizer-operator/test/utils"
 )
 
 // namespace where the project is deployed in

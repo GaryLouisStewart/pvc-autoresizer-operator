@@ -29,10 +29,10 @@ type AutoResizePolicySpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// Foo is an example field of AutoResizePolicy. Edit autoresizepolicy_types.go to remove/update
-	Selector             metav1.LabelSelector `json:"selector"`
-	ThresholdPercent     int                  `json:"thresholdPercent"`
-	IncreasePercent      int                  `json:"increasePercent"`
-	CheckIntervalSeconds int                  `json:"checkIntervalSeconds"`
+	Selector             *metav1.LabelSelector `json:"selector"`
+	ThresholdPercent     int                   `json:"thresholdPercent"`
+	IncreasePercent      int                   `json:"increasePercent"`
+	CheckIntervalSeconds int                   `json:"checkIntervalSeconds"`
 }
 
 // AutoResizePolicyStatus defines the observed state of AutoResizePolicy.
@@ -63,6 +63,5 @@ type AutoResizePolicyList struct {
 }
 
 func init() {
-	SchemeBuilder.Register(&AutoResizePolicy{}, &AutoResizePolicyList{}, &Auto)
+	SchemeBuilder.Register(&AutoResizePolicy{}, &AutoResizePolicyList{})
 }
-
